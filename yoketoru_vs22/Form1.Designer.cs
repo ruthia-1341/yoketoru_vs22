@@ -41,7 +41,7 @@ namespace yoketoru_vs22
             // 
             this.start_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.start_button.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.start_button.Location = new System.Drawing.Point(245, 226);
+            this.start_button.Location = new System.Drawing.Point(218, 226);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(365, 122);
             this.start_button.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace yoketoru_vs22
             this.title_label.AutoSize = true;
             this.title_label.Font = new System.Drawing.Font("Yu Gothic UI", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.title_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.title_label.Location = new System.Drawing.Point(158, 54);
+            this.title_label.Location = new System.Drawing.Point(132, 54);
             this.title_label.Name = "title_label";
             this.title_label.Size = new System.Drawing.Size(537, 125);
             this.title_label.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace yoketoru_vs22
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(276, 169);
+            this.label1.Location = new System.Drawing.Point(259, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(282, 54);
             this.label1.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace yoketoru_vs22
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(267, 404);
+            this.label2.Location = new System.Drawing.Point(240, 404);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(321, 37);
             this.label2.TabIndex = 3;
