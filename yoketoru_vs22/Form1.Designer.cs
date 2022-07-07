@@ -128,7 +128,7 @@ namespace yoketoru_vs22
             // 
             this.title_button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.title_button1.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.title_button1.Location = new System.Drawing.Point(161, 287);
+            this.title_button1.Location = new System.Drawing.Point(169, 258);
             this.title_button1.Name = "title_button1";
             this.title_button1.Size = new System.Drawing.Size(472, 117);
             this.title_button1.TabIndex = 8;
