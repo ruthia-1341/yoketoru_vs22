@@ -15,11 +15,14 @@ namespace yoketoru_vs22
     {
         const bool isDebug = true;
 
+        const int SpeedMax = 10;
         const int PlayerMax = 1;
         const int EnemyMax = 10;
         const int ItemMax = 10;
         const int ChrMax = PlayerMax + EnemyMax + ItemMax;
         Label[] chrs = new Label[ChrMax];
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
 
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;//（PlayerMax = 1）+（ PlayerIndex = 0）＝１
@@ -79,8 +82,34 @@ namespace yoketoru_vs22
         {//ゲームを止めておく場所をここに集めるってことかな？
 
             Point mp = PointToClient(MousePosition);
-            /*PlayerText.Left = mf.X - PlayerText.Width / 2;
-            PlayerText.Top = mf.Y - PlayerText.Height / 2;*/
+
+            // TODO: mpがプレイヤーの中心になるように設定
+            for (int i=EnemyIndex;i<ChrMax;i++)
+            {
+                chrs[i].Left += vx[i];
+                chrs[i].Top += vy[i];
+
+                if (chrs[i].Left<0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }else if (chrs[i].Left > ClientSize.Width)
+                {
+                    vx[i] = -vx[i];
+                }
+                if (chrs[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                else if (chrs[i].Top > ClientSize.Height)
+                {
+                    vy[i] = -vy[i];
+                }
+            }
+            /*
+              ??????????????????????????何とかしてくれ
+
+            PlayerIndex.Left = mp.X - PlayerIndex.Width / 2;
+            PlayerIndex.Top = mp.Y - PlayerIndex.Height / 2;*/
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -111,7 +140,7 @@ namespace yoketoru_vs22
         }
 
 
-        void initProc()
+        void initProc()//開始時
         {
             currentState = nextState;
             nextState = State.None;
@@ -138,6 +167,8 @@ namespace yoketoru_vs22
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                        vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
 
                     break;

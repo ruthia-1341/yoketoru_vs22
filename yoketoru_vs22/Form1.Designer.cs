@@ -148,6 +148,7 @@ namespace yoketoru_vs22
             // templabel1
             // 
             this.templabel1.AutoSize = true;
+            this.templabel1.BackColor = System.Drawing.Color.Transparent;
             this.templabel1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.templabel1.Location = new System.Drawing.Point(4, 404);
             this.templabel1.Name = "templabel1";
