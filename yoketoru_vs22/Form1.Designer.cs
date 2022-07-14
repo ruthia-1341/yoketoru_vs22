@@ -52,6 +52,7 @@ namespace yoketoru_vs22
             this.start_button.TabIndex = 0;
             this.start_button.Text = "スタート！";
             this.start_button.UseVisualStyleBackColor = false;
+            this.start_button.Click += new System.EventHandler(this.start_button_Click);
             // 
             // title_label
             // 
@@ -120,7 +121,7 @@ namespace yoketoru_vs22
             this.clear_label6.AutoSize = true;
             this.clear_label6.Font = new System.Drawing.Font("Yu Gothic UI", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clear_label6.ForeColor = System.Drawing.Color.Red;
-            this.clear_label6.Location = new System.Drawing.Point(203, 149);
+            this.clear_label6.Location = new System.Drawing.Point(195, 135);
             this.clear_label6.Name = "clear_label6";
             this.clear_label6.Size = new System.Drawing.Size(414, 125);
             this.clear_label6.TabIndex = 7;
@@ -130,12 +131,13 @@ namespace yoketoru_vs22
             // 
             this.title_button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.title_button1.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.title_button1.Location = new System.Drawing.Point(169, 258);
+            this.title_button1.Location = new System.Drawing.Point(169, 268);
             this.title_button1.Name = "title_button1";
             this.title_button1.Size = new System.Drawing.Size(472, 117);
             this.title_button1.TabIndex = 8;
             this.title_button1.Text = "タイトルへ";
             this.title_button1.UseVisualStyleBackColor = false;
+            this.title_button1.Click += new System.EventHandler(this.title_button1_Click);
             // 
             // timer1
             // 

@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace yoketoru_vs22
 {
     public partial class Form1 : Form
     {
+        const bool isDebug = true;
+
         enum State
-        {//何も宣言しない場合は上から0.1...となる。が、わからないので－1をもうける
+        {//何も宣言しない場合は上から0.1...となる。が、わからないので－1をもうける。-1なのは初期化のためにも、自然に入らんものってことかな？
 
             None = -1, //無効
             Title,     //タイトル
@@ -26,6 +29,9 @@ namespace yoketoru_vs22
         State currentState = State.None;
         State nextState = State.Title;
 
+        [DllImport("user32.dll")]
+        public static extern short GetAsyncKeyState(int vKye);
+
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +43,18 @@ namespace yoketoru_vs22
             {//初期化処理
              //状態が切り替わるときに 一回だけ 動作する
                initProc();
+            }
+
+            if (isDebug)//bool型なら==とかいらない。()の中を計算。boolで計算され、tureだったら成立、みたいな感じになる。前に！をつけると成立不成立が反転する（tureとかは反転しない）。
+            {
+                if (GetAsyncKeyState((int)Keys.O) < 0)
+                {
+                    nextState = State.Gameover;
+                }
+                else if (GetAsyncKeyState((int)Keys.C)<0)
+                {
+                    nextState = State.Clear;
+                }
             }
         }
 
@@ -77,6 +95,16 @@ namespace yoketoru_vs22
                     break;
 
             }
+        }
+
+        private void start_button_Click(object sender, EventArgs e)
+        {
+            nextState = State.Game;
+        }
+
+        private void title_button1_Click(object sender, EventArgs e)
+        {
+            nextState = State.Title;
         }
     }
 }
