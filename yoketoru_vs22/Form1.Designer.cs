@@ -40,6 +40,7 @@ namespace yoketoru_vs22
             this.clear_label6 = new System.Windows.Forms.Label();
             this.title_button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.templabel1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // start_button
@@ -144,12 +145,25 @@ namespace yoketoru_vs22
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // templabel1
+            // 
+            this.templabel1.AutoSize = true;
+            this.templabel1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.templabel1.Location = new System.Drawing.Point(4, 404);
+            this.templabel1.Name = "templabel1";
+            this.templabel1.Size = new System.Drawing.Size(44, 37);
+            this.templabel1.TabIndex = 9;
+            this.templabel1.Text = "★";
+            this.templabel1.Visible = false;
+            this.templabel1.Click += new System.EventHandler(this.templabel1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.templabel1);
             this.Controls.Add(this.title_button1);
             this.Controls.Add(this.clear_label6);
             this.Controls.Add(this.gameover_label5);
@@ -178,6 +192,7 @@ namespace yoketoru_vs22
         private System.Windows.Forms.Label clear_label6;
         private System.Windows.Forms.Button title_button1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label templabel1;
     }
 }
 

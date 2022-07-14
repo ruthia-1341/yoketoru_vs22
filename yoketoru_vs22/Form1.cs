@@ -69,16 +69,18 @@ namespace yoketoru_vs22
                 {
                     chrs[i].Text = ItemText;
                 }
+
+                chrs[i].Font = templabel1.Font;
                 Controls.Add(chrs[i]);
             }
         }
 
         void UpdateGame()
         {//ゲームを止めておく場所をここに集めるってことかな？
-            Point mp = MousePosition;
-            Point mf = PointToClient(mp);
-            PlayerText.Left = mf.X - PlayerText.Width / 2;
-            PlayerText.Top = mf.Y - PlayerText.Height / 2;
+
+            Point mp = PointToClient(MousePosition);
+            /*PlayerText.Left = mf.X - PlayerText.Width / 2;
+            PlayerText.Top = mf.Y - PlayerText.Height / 2;*/
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -132,11 +134,12 @@ namespace yoketoru_vs22
                     copyroghtlabel.Visible = false;
                     hilabel1.Visible = false;
 
-                    for(int i = EnemyIndex; i < ChrMax; i++)
+                    for (int i = EnemyIndex; i < ChrMax; i++)
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                     }
+
                     break;
 
                 case State.Gameover:
@@ -161,6 +164,11 @@ namespace yoketoru_vs22
         private void title_button1_Click(object sender, EventArgs e)
         {
             nextState = State.Title;
+        }
+
+        private void templabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
