@@ -29,15 +29,17 @@ namespace yoketoru_vs22
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.start_button = new System.Windows.Forms.Button();
             this.title_label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.hilabel1 = new System.Windows.Forms.Label();
+            this.copyroghtlabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gameover_label5 = new System.Windows.Forms.Label();
             this.clear_label6 = new System.Windows.Forms.Label();
             this.title_button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // start_button
@@ -58,29 +60,29 @@ namespace yoketoru_vs22
             this.title_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.title_label.Location = new System.Drawing.Point(132, 54);
             this.title_label.Name = "title_label";
-            this.title_label.Size = new System.Drawing.Size(537, 125);
+            this.title_label.Size = new System.Drawing.Size(541, 125);
             this.title_label.TabIndex = 1;
-            this.title_label.Text = "とけとる2022";
+            this.title_label.Text = "よけとる2022";
             // 
-            // label1
+            // hilabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(259, 169);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 54);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "HighScore 100";
+            this.hilabel1.AutoSize = true;
+            this.hilabel1.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.hilabel1.Location = new System.Drawing.Point(259, 169);
+            this.hilabel1.Name = "hilabel1";
+            this.hilabel1.Size = new System.Drawing.Size(282, 54);
+            this.hilabel1.TabIndex = 2;
+            this.hilabel1.Text = "HighScore 100";
             // 
-            // label2
+            // copyroghtlabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(240, 404);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(321, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Copyright ©2020 田中 雄";
+            this.copyroghtlabel.AutoSize = true;
+            this.copyroghtlabel.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.copyroghtlabel.Location = new System.Drawing.Point(240, 404);
+            this.copyroghtlabel.Name = "copyroghtlabel";
+            this.copyroghtlabel.Size = new System.Drawing.Size(321, 37);
+            this.copyroghtlabel.TabIndex = 3;
+            this.copyroghtlabel.Text = "Copyright ©2020 田中 雄";
             // 
             // label3
             // 
@@ -107,7 +109,7 @@ namespace yoketoru_vs22
             this.gameover_label5.AutoSize = true;
             this.gameover_label5.Font = new System.Drawing.Font("Yu Gothic UI", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gameover_label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.gameover_label5.Location = new System.Drawing.Point(156, 149);
+            this.gameover_label5.Location = new System.Drawing.Point(180, 149);
             this.gameover_label5.Name = "gameover_label5";
             this.gameover_label5.Size = new System.Drawing.Size(461, 106);
             this.gameover_label5.TabIndex = 6;
@@ -118,7 +120,7 @@ namespace yoketoru_vs22
             this.clear_label6.AutoSize = true;
             this.clear_label6.Font = new System.Drawing.Font("Yu Gothic UI", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clear_label6.ForeColor = System.Drawing.Color.Red;
-            this.clear_label6.Location = new System.Drawing.Point(185, 149);
+            this.clear_label6.Location = new System.Drawing.Point(203, 149);
             this.clear_label6.Name = "clear_label6";
             this.clear_label6.Size = new System.Drawing.Size(414, 125);
             this.clear_label6.TabIndex = 7;
@@ -135,6 +137,11 @@ namespace yoketoru_vs22
             this.title_button1.Text = "タイトルへ";
             this.title_button1.UseVisualStyleBackColor = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -146,8 +153,8 @@ namespace yoketoru_vs22
             this.Controls.Add(this.gameover_label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.copyroghtlabel);
+            this.Controls.Add(this.hilabel1);
             this.Controls.Add(this.title_label);
             this.Controls.Add(this.start_button);
             this.Name = "Form1";
@@ -161,13 +168,14 @@ namespace yoketoru_vs22
 
         private System.Windows.Forms.Button start_button;
         private System.Windows.Forms.Label title_label;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label hilabel1;
+        private System.Windows.Forms.Label copyroghtlabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label gameover_label5;
         private System.Windows.Forms.Label clear_label6;
         private System.Windows.Forms.Button title_button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
