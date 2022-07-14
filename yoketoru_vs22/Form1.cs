@@ -73,6 +73,14 @@ namespace yoketoru_vs22
             }
         }
 
+        void UpdateGame()
+        {//ゲームを止めておく場所をここに集めるってことかな？
+            Point mp = MousePosition;
+            Point mf = PointToClient(mp);
+            PlayerText.Left = mf.X - PlayerText.Width / 2;
+            PlayerText.Top = mf.Y - PlayerText.Height / 2;
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (nextState != State.None)
@@ -92,6 +100,12 @@ namespace yoketoru_vs22
                     nextState = State.Clear;
                 }
             }
+
+            if (currentState == State.Game)//がめおべらの時にゲームを止めるっていう処理あるやん、それみたいなやつ
+            {
+                UpdateGame();
+            }
+
         }
 
 
@@ -117,6 +131,12 @@ namespace yoketoru_vs22
                     start_button.Visible = false;
                     copyroghtlabel.Visible = false;
                     hilabel1.Visible = false;
+
+                    for(int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
                     break;
 
                 case State.Gameover:
