@@ -39,6 +39,7 @@ namespace yoketoru_vs22
             }
         }
 
+
         void initProc()
         {
             currentState = nextState;
@@ -51,9 +52,9 @@ namespace yoketoru_vs22
                     start_button.Visible = true;
                     copyroghtlabel.Visible = true;
                     hilabel1.Visible = true;
-                    gameover_label5.Visible = true;
-                    title_button1.Visible = true;
-                    clear_label6.Visible = true;
+                    gameover_label5.Visible = false;
+                    title_button1.Visible = false;
+                    clear_label6.Visible = false;
                     break;
 
                 case State.Game:
