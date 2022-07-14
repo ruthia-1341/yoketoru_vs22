@@ -35,6 +35,7 @@ namespace yoketoru_vs22
         {
             if (nextState != State.None)
             {//初期化処理
+             //状態が切り替わるときに 一回だけ 動作する
                initProc();
             }
         }
@@ -58,11 +59,23 @@ namespace yoketoru_vs22
                     break;
 
                 case State.Game:
-                    title_label.Visible = true;
-                    start_button.Visible = true;
-                    copyroghtlabel.Visible = true;
+                    title_label.Visible = false;
+                    start_button.Visible = false;
+                    copyroghtlabel.Visible = false;
+                    hilabel1.Visible = false;
+                    break;
+
+                case State.Gameover:
+                    gameover_label5.Visible = true;
+                    title_button1.Visible = true;
+                    break;
+
+                case State.Clear:
+                    clear_label6.Visible = true;
+                    title_button1.Visible = true;
                     hilabel1.Visible = true;
                     break;
+
             }
         }
     }
