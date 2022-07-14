@@ -20,12 +20,16 @@ namespace yoketoru_vs22
         const int ItemMax = 10;
         const int ChrMax = PlayerMax + EnemyMax + ItemMax;
         Label[] chrs = new Label[ChrMax];
+
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;//（PlayerMax = 1）+（ PlayerIndex = 0）＝１
         const int ItemIndex = EnemyIndex + EnemyMax;//（EnemyIndex =（PlayerMax = 1）+（ PlayerIndex = 0）＝１）+（EnemyMax = 10）＝11
 
-        const int PlayerText = "(・ω・)";
+        const string PlayerText = "(・ω・)";
+        const string EnemyText = "◆";
+        const string ItemText = "★";
 
+        static Random rand = new Random();
 
         enum State
         {//何も宣言しない場合は上から0.1...となる。が、わからないので－1をもうける。-1なのは初期化のためにも、自然に入らんものってことかな？
@@ -47,6 +51,26 @@ namespace yoketoru_vs22
         public Form1()
         {
             InitializeComponent();
+
+            for (int i=0;i<ChrMax;i++)
+            {
+                chrs[i]= new Label();
+                chrs[i].AutoSize = true;
+
+                if (i == PlayerIndex)
+                {
+                    chrs[i].Text = PlayerText;
+                }
+                else if (i<ItemIndex)
+                {
+                    chrs[i].Text = EnemyText;
+                }
+                else
+                {
+                    chrs[i].Text = ItemText;
+                }
+                Controls.Add(chrs[i]);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
