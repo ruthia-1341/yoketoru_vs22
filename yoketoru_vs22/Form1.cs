@@ -242,6 +242,7 @@ namespace yoketoru_vs22
 
                     ItemCount = ItemMax;
                     time = StartTime+1;
+                    countlabel4.Text = $"★:{ItemCount:00}";
 
                     break;
 
