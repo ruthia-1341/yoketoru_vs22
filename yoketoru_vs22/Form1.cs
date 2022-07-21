@@ -64,11 +64,11 @@ namespace yoketoru_vs22
                 {
                     chrs[i].Text = PlayerText;
                 }
-                else if (i<ItemIndex)
+                else if (i<ItemIndex)//1～10はエネミーになる
                 {
                     chrs[i].Text = EnemyText;
                 }
-                else
+                else//11以上はアイテムになる
                 {
                     chrs[i].Text = ItemText;
                 }
@@ -82,6 +82,9 @@ namespace yoketoru_vs22
         {//ゲームを止めておく場所をここに集めるってことかな？
 
             Point mp = PointToClient(MousePosition);
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width/2;
+            chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height/2;
+            //Textではなく、Indexの方！
 
             // TODO: mpがプレイヤーの中心になるように設定
             for (int i=EnemyIndex;i<ChrMax;i++)
@@ -94,7 +97,7 @@ namespace yoketoru_vs22
                     vx[i] = Math.Abs(vx[i]);
                 }else if (chrs[i].Left > ClientSize.Width)
                 {
-                    vx[i] = -vx[i];
+                    vx[i] = -Math.Abs(vx[i]);
                 }
                 if (chrs[i].Top < 0)
                 {
@@ -102,7 +105,7 @@ namespace yoketoru_vs22
                 }
                 else if (chrs[i].Top > ClientSize.Height)
                 {
-                    vy[i] = -vy[i];
+                    vy[i] = -Math.Abs(vy[i]);
                 }
             }
             /*
@@ -143,7 +146,7 @@ namespace yoketoru_vs22
         void initProc()//開始時
         {
             currentState = nextState;
-            nextState = State.None;
+            nextState = State.None;//次のタイマーが実行されたタイミングではもう実行されない
 
             switch (currentState)
             {
