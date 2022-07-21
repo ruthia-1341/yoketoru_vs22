@@ -27,6 +27,7 @@ namespace yoketoru_vs22
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;//（PlayerMax = 1）+（ PlayerIndex = 0）＝１
         const int ItemIndex = EnemyIndex + EnemyMax;//（EnemyIndex =（PlayerMax = 1）+（ PlayerIndex = 0）＝１）+（EnemyMax = 10）＝11
+        const int StartTime = 100;//１０秒ぐらい（100ミリ秒）
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
@@ -51,7 +52,8 @@ namespace yoketoru_vs22
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKye);
 
-        int ItemCount;
+        int ItemCount;//右上のカウント
+        int time;//残り時間
 
         public Form1()
         {
@@ -82,7 +84,12 @@ namespace yoketoru_vs22
 
         void UpdateGame()
         {//ゲームを止めておく場所をここに集めるってことかな？
+
             
+            timelabel.Text = $"Time:{time:00}";
+            time--;
+
+
             Point mp = PointToClient(MousePosition);
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width/2;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height/2;
@@ -91,22 +98,27 @@ namespace yoketoru_vs22
             // TODO: mpがプレイヤーの中心になるように設定
             for (int i=EnemyIndex;i<ChrMax;i++)
             {
-                
 
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
-                if (!chrs[i].Visible)//番人　turuが成立が普通だが、！をつければ反対になる。　…つまりfalseのものは動作しない
-                {
+                
+                if (!chrs[i].Visible)
+                { 
+                    //番人　turuが成立が普通だが、！をつければ反対になる。　
+                    //…つまりfalseのものは動作しない
+                
                     continue;
                 }
-
+                //x
                 if (chrs[i].Left<0)
                 {
                     vx[i] = Math.Abs(vx[i]);
-                }else if (chrs[i].Left > ClientSize.Width)
+                }
+                else if (chrs[i].Left > ClientSize.Width)
                 {
                     vx[i] = -Math.Abs(vx[i]);
                 }
+                //y
                 if (chrs[i].Top < 0)
                 {
                     vy[i] = Math.Abs(vy[i]);
@@ -115,6 +127,7 @@ namespace yoketoru_vs22
                 {
                     vy[i] = -Math.Abs(vy[i]);
                 }
+                //マウス
                 if (mp.X <= chrs[i].Right && mp.Y <= chrs[i].Bottom && mp.X > chrs[i].Left && mp.Y > chrs[i].Top)
                 {
                     if (i < ItemIndex)
@@ -122,7 +135,9 @@ namespace yoketoru_vs22
                         nextState = State.Gameover;
                     }
                     else
-                    {//アイテム
+                    {   
+                        //アイテム
+
                         chrs[i].Visible = false;
                         ItemCount--;
                         
@@ -130,6 +145,7 @@ namespace yoketoru_vs22
                         {
                              nextState = State.Clear;
                         }
+                        //右上のラベルにItemCountを反映する
                         countlabel4.Text = $"★:{ItemCount:00}";
 
                         /*
@@ -140,6 +156,7 @@ namespace yoketoru_vs22
                         chrs[i].Left = 10000;
                         */
                     }
+                   
                   
                 }
                
@@ -217,6 +234,7 @@ namespace yoketoru_vs22
                     }
 
                     ItemCount = ItemMax;
+                    time = StartTime+1;
 
                     break;
 

@@ -34,7 +34,7 @@ namespace yoketoru_vs22
             this.title_label = new System.Windows.Forms.Label();
             this.hilabel1 = new System.Windows.Forms.Label();
             this.copyroghtlabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.timelabel = new System.Windows.Forms.Label();
             this.countlabel4 = new System.Windows.Forms.Label();
             this.gameover_label5 = new System.Windows.Forms.Label();
             this.clear_label6 = new System.Windows.Forms.Label();
@@ -86,15 +86,15 @@ namespace yoketoru_vs22
             this.copyroghtlabel.TabIndex = 3;
             this.copyroghtlabel.Text = "Copyright ©2020 田中 雄";
             // 
-            // label3
+            // timelabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(4, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 54);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Time 100";
+            this.timelabel.AutoSize = true;
+            this.timelabel.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.timelabel.Location = new System.Drawing.Point(4, 10);
+            this.timelabel.Name = "timelabel";
+            this.timelabel.Size = new System.Drawing.Size(184, 54);
+            this.timelabel.TabIndex = 4;
+            this.timelabel.Text = "Time:100";
             // 
             // countlabel4
             // 
@@ -170,7 +170,7 @@ namespace yoketoru_vs22
             this.Controls.Add(this.clear_label6);
             this.Controls.Add(this.gameover_label5);
             this.Controls.Add(this.countlabel4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.timelabel);
             this.Controls.Add(this.copyroghtlabel);
             this.Controls.Add(this.hilabel1);
             this.Controls.Add(this.title_label);
@@ -188,7 +188,7 @@ namespace yoketoru_vs22
         private System.Windows.Forms.Label title_label;
         private System.Windows.Forms.Label hilabel1;
         private System.Windows.Forms.Label copyroghtlabel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label timelabel;
         private System.Windows.Forms.Label countlabel4;
         private System.Windows.Forms.Label gameover_label5;
         private System.Windows.Forms.Label clear_label6;
