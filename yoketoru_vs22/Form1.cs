@@ -51,6 +51,8 @@ namespace yoketoru_vs22
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKye);
 
+        int ItemCount;
+
         public Form1()
         {
             InitializeComponent();
@@ -80,7 +82,7 @@ namespace yoketoru_vs22
 
         void UpdateGame()
         {//ゲームを止めておく場所をここに集めるってことかな？
-
+            
             Point mp = PointToClient(MousePosition);
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width/2;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height/2;
@@ -107,11 +109,28 @@ namespace yoketoru_vs22
                 {
                     vy[i] = -Math.Abs(vy[i]);
                 }
-                if (mp.X <= chrs[PlayerIndex].Right && mp.Y <= chrs[PlayerIndex].Bottom && mp.X > chrs[PlayerIndex].Left && mp.Y > chrs[PlayerIndex].Top)
+                if (mp.X <= chrs[i].Right && mp.Y <= chrs[i].Bottom && mp.X > chrs[i].Left && mp.Y > chrs[i].Top)
                 {
-                    MessageBox.Show("ぶつかった");
+                    if (i < ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {//アイテム
+                        chrs[i].Visible = false;
+                        ItemCount--;
+                        if (ItemCount <= 0)
+                        {
+                             nextState = State.Clear;
+                        }
+                        ItemText = $"★:{ItemCount:00}";
+                    }
+                  
                 }
-            }
+               
+            } 
+            
+            
             /*
               ??????????????????????????何とかしてくれ
 
@@ -181,6 +200,8 @@ namespace yoketoru_vs22
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
 
+                    ItemCount = ItemMax;
+
                     break;
 
                 case State.Gameover:
@@ -208,6 +229,11 @@ namespace yoketoru_vs22
         }
 
         private void templabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void countlabel4_Click(object sender, EventArgs e)
         {
 
         }
