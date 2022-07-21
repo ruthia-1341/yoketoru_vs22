@@ -91,8 +91,14 @@ namespace yoketoru_vs22
             // TODO: mpがプレイヤーの中心になるように設定
             for (int i=EnemyIndex;i<ChrMax;i++)
             {
+                
+
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
+                if (!chrs[i].Visible)//番人　turuが成立が普通だが、！をつければ反対になる。　…つまりfalseのものは動作しない
+                {
+                    continue;
+                }
 
                 if (chrs[i].Left<0)
                 {
@@ -119,11 +125,20 @@ namespace yoketoru_vs22
                     {//アイテム
                         chrs[i].Visible = false;
                         ItemCount--;
+                        
                         if (ItemCount <= 0)
                         {
                              nextState = State.Clear;
                         }
-                        ItemText = $"★:{ItemCount:00}";
+                        countlabel4.Text = $"★:{ItemCount:00}";
+
+                        /*
+                        //速度を０にして
+                        vx[i] = 0;
+                        vy[i] = 0;
+                        //座標を飛ばす
+                        chrs[i].Left = 10000;
+                        */
                     }
                   
                 }
@@ -184,6 +199,7 @@ namespace yoketoru_vs22
                     gameover_label5.Visible = false;
                     title_button1.Visible = false;
                     clear_label6.Visible = false;
+
                     break;
 
                 case State.Game:
