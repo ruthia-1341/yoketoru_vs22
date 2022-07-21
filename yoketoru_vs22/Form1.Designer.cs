@@ -37,10 +37,10 @@ namespace yoketoru_vs22
             this.timelabel = new System.Windows.Forms.Label();
             this.countlabel4 = new System.Windows.Forms.Label();
             this.gameover_label5 = new System.Windows.Forms.Label();
-            this.clear_label6 = new System.Windows.Forms.Label();
             this.title_button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.templabel1 = new System.Windows.Forms.Label();
+            this.clear_label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // start_button
@@ -118,17 +118,6 @@ namespace yoketoru_vs22
             this.gameover_label5.TabIndex = 6;
             this.gameover_label5.Text = "GAMEOVER";
             // 
-            // clear_label6
-            // 
-            this.clear_label6.AutoSize = true;
-            this.clear_label6.Font = new System.Drawing.Font("Yu Gothic UI", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clear_label6.ForeColor = System.Drawing.Color.Red;
-            this.clear_label6.Location = new System.Drawing.Point(194, 54);
-            this.clear_label6.Name = "clear_label6";
-            this.clear_label6.Size = new System.Drawing.Size(414, 125);
-            this.clear_label6.TabIndex = 7;
-            this.clear_label6.Text = "CLEAR！";
-            // 
             // title_button1
             // 
             this.title_button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -158,6 +147,17 @@ namespace yoketoru_vs22
             this.templabel1.Text = "★";
             this.templabel1.Visible = false;
             this.templabel1.Click += new System.EventHandler(this.templabel1_Click);
+            // 
+            // clear_label6
+            // 
+            this.clear_label6.AutoSize = true;
+            this.clear_label6.Font = new System.Drawing.Font("Yu Gothic UI", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clear_label6.ForeColor = System.Drawing.Color.Red;
+            this.clear_label6.Location = new System.Drawing.Point(194, 54);
+            this.clear_label6.Name = "clear_label6";
+            this.clear_label6.Size = new System.Drawing.Size(414, 125);
+            this.clear_label6.TabIndex = 7;
+            this.clear_label6.Text = "CLEAR！";
             // 
             // Form1
             // 
@@ -191,10 +191,10 @@ namespace yoketoru_vs22
         private System.Windows.Forms.Label timelabel;
         private System.Windows.Forms.Label countlabel4;
         private System.Windows.Forms.Label gameover_label5;
-        private System.Windows.Forms.Label clear_label6;
         private System.Windows.Forms.Button title_button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label templabel1;
+        private System.Windows.Forms.Label clear_label6;
     }
 }
 
