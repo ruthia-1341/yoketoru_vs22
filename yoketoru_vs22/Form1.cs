@@ -60,7 +60,7 @@ namespace yoketoru_vs22
                 chrs[i]= new Label();
                 chrs[i].AutoSize = true;
 
-                if (i == PlayerIndex)
+                if (i == PlayerIndex)//i=プレイヤーインデックス
                 {
                     chrs[i].Text = PlayerText;
                 }
@@ -107,12 +107,19 @@ namespace yoketoru_vs22
                 {
                     vy[i] = -Math.Abs(vy[i]);
                 }
+                if (mp.X <= chrs[PlayerIndex].Right && mp.Y <= chrs[PlayerIndex].Bottom && mp.X > chrs[PlayerIndex].Left && mp.Y > chrs[PlayerIndex].Top)
+                {
+                    MessageBox.Show("ぶつかった");
+                }
             }
             /*
               ??????????????????????????何とかしてくれ
 
             PlayerIndex.Left = mp.X - PlayerIndex.Width / 2;
             PlayerIndex.Top = mp.Y - PlayerIndex.Height / 2;*/
+
+
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
