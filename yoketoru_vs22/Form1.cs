@@ -160,15 +160,20 @@ namespace yoketoru_vs22
                   
                 }
                
-            } 
-            
-            
+            }
+
+
             /*
               ??????????????????????????何とかしてくれ
 
             PlayerIndex.Left = mp.X - PlayerIndex.Width / 2;
             PlayerIndex.Top = mp.Y - PlayerIndex.Height / 2;*/
 
+
+            if ((time <= 0) && (nextState == State.None))//通常はやったほうがいい。シーンが変わったときは除く(実はなくても動く)
+            {
+                nextState = State.Gameover;
+            }
 
             
         }
