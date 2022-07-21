@@ -72,9 +72,9 @@ namespace yoketoru_vs22
             this.hilabel1.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.hilabel1.Location = new System.Drawing.Point(259, 169);
             this.hilabel1.Name = "hilabel1";
-            this.hilabel1.Size = new System.Drawing.Size(282, 54);
+            this.hilabel1.Size = new System.Drawing.Size(236, 54);
             this.hilabel1.TabIndex = 2;
-            this.hilabel1.Text = "HighScore 100";
+            this.hilabel1.Text = "HighScore:0";
             // 
             // copyroghtlabel
             // 
@@ -123,7 +123,7 @@ namespace yoketoru_vs22
             this.clear_label6.AutoSize = true;
             this.clear_label6.Font = new System.Drawing.Font("Yu Gothic UI", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clear_label6.ForeColor = System.Drawing.Color.Red;
-            this.clear_label6.Location = new System.Drawing.Point(195, 135);
+            this.clear_label6.Location = new System.Drawing.Point(194, 54);
             this.clear_label6.Name = "clear_label6";
             this.clear_label6.Size = new System.Drawing.Size(414, 125);
             this.clear_label6.TabIndex = 7;

@@ -54,6 +54,7 @@ namespace yoketoru_vs22
 
         int ItemCount;//右上のカウント
         int time;//残り時間
+        int hiscore = 0;//スコア
 
         public Form1()
         {
@@ -252,6 +253,11 @@ namespace yoketoru_vs22
                     clear_label6.Visible = true;
                     title_button1.Visible = true;
                     hilabel1.Visible = true;
+                    if (time > hiscore)
+                    {
+                        hiscore = time;
+                        hilabel1.Text = $"HighScore:{hiscore:00}";
+                    }
                     break;
 
             }
